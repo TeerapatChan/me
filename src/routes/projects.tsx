@@ -1,7 +1,5 @@
 import { Link } from '@tanstack/react-router';
 import { ExternalLink, Github } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { Skeleton } from '@/components/ui/skeleton';
 import {
   Badge,
   Button,
@@ -84,59 +82,8 @@ const projects = [
 ];
 
 export default function ProjectsPage() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading data
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-  // Split projects into featured and regular
   const featuredProjects = projects.filter((project) => project.featured);
   const regularProjects = projects.filter((project) => !project.featured);
-
-  if (isLoading) {
-    return (
-      <div className="container py-12 px-4 md:px-6 mx-auto">
-        <div className="space-y-2 text-center mb-12">
-          <Skeleton className="h-12 w-64 mx-auto" />
-          <Skeleton className="h-6 w-1/2 mx-auto" />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <Card key={i} className="h-full flex flex-col">
-              <Skeleton className="h-48 w-full rounded-t-lg" />
-              <CardHeader>
-                <Skeleton className="h-7 w-3/4" />
-                <Skeleton className="h-5 w-1/2 mt-1" />
-              </CardHeader>
-              <CardContent className="flex-1">
-                <div className="space-y-2">
-                  {[1, 2, 3].map((j) => (
-                    <Skeleton key={j} className="h-4 w-full" />
-                  ))}
-                  <Skeleton className="h-4 w-2/3" />
-                </div>
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {[1, 2, 3].map((k) => (
-                    <Skeleton key={k} className="h-6 w-16" />
-                  ))}
-                </div>
-              </CardContent>
-              <CardFooter className="flex gap-2 mt-auto pt-4">
-                <Skeleton className="h-9 w-24 rounded-md" />
-                <Skeleton className="h-9 w-24 rounded-md" />
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="container py-12 px-4 md:px-6 mx-auto">

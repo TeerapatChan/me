@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Github, Linkedin, Mail, MapPin, Phone, Send } from 'lucide-react';
-import { Skeleton } from '@/components/ui/skeleton';
 
 import {
   Button,
@@ -16,16 +15,6 @@ import {
 } from '@/components/ui';
 
 function ContactPage() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading data
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -100,26 +89,6 @@ function ContactPage() {
       setTimeout(() => setFormStatus('idle'), 3000);
     }
   };
-
-  if (isLoading) {
-    return (
-      <div className="container py-12 px-4 md:px-6 mx-auto">
-        <div className="space-y-2 text-center mb-16">
-          <Skeleton className="h-12 w-64 mx-auto" />
-          <Skeleton className="h-6 w-1/2 mx-auto" />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <Skeleton className="h-96 w-full" />
-          </div>
-          <div className="space-y-6">
-            <Skeleton className="h-96 w-full" />
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="container py-12 px-4 md:px-6 mx-auto">

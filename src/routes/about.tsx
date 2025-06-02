@@ -1,6 +1,4 @@
 import { Briefcase, Code, GraduationCap, Lightbulb } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { Skeleton } from '@/components/ui/skeleton';
 import {
   Badge,
   Card,
@@ -10,16 +8,6 @@ import {
 } from '@/components/ui';
 
 export default function AboutPage() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading data
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
   const skills: Array<string> = [
     'JavaScript',
     'TypeScript',
@@ -71,90 +59,74 @@ export default function AboutPage() {
     },
   ];
 
-  if (isLoading) {
-    return (
-      <div className="container py-12 px-4 md:px-6 mx-auto">
-        <div className="space-y-12">
-          {/* Header Section */}
-          <div className="space-y-2 text-center">
-            <Skeleton className="h-12 w-64 mx-auto" />
-            <Skeleton className="h-6 w-1/2 mx-auto" />
-          </div>
+  // if (isLoading) {
+  //   return (
+  //     <div className="container py-12 px-4 md:px-6 mx-auto">
+  //       <div className="space-y-12">
+  //         {/* Header Section */}
+  //         <div className="space-y-2 text-center">
+  //           <Skeleton className="h-12 w-64 mx-auto" />
+  //           <Skeleton className="h-6 w-3/4 mx-auto" />
+  //           <Skeleton className="h-6 w-1/2 mx-auto" />
+  //         </div>
 
-          {/* Skills Section */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <Skeleton className="h-6 w-6" />
-              <Skeleton className="h-8 w-32" />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <Skeleton key={i} className="h-8 w-24" />
-              ))}
-            </div>
-          </div>
+  //         {/* Experience Section */}
+  //         <div className="space-y-4">
+  //           <div className="space-y-6">
+  //             {[1, 2].map((i) => (
+  //               <Card key={i}>
+  //                 <CardHeader>
+  //                   <Skeleton className="h-6 w-48" />
+  //                   <Skeleton className="h-5 w-36" />
+  //                 </CardHeader>
+  //                 <CardContent>
+  //                   <Skeleton className="h-4 w-full" />
+  //                   <Skeleton className="h-4 w-5/6 mt-2" />
+  //                 </CardContent>
+  //               </Card>
+  //             ))}
+  //           </div>
+  //         </div>
 
-          {/* Experience Section */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <Skeleton className="h-6 w-6" />
-              <Skeleton className="h-8 w-40" />
-            </div>
-            <div className="space-y-6">
-              {[1, 2].map((i) => (
-                <Card key={i}>
-                  <CardHeader>
-                    <Skeleton className="h-6 w-48" />
-                    <Skeleton className="h-5 w-36" />
-                  </CardHeader>
-                  <CardContent>
-                    <Skeleton className="h-4 w-full" />
-                    <Skeleton className="h-4 w-5/6 mt-2" />
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
+  //         {/* Education Section */}
+  //         <div className="space-y-4">
+  //           <div className="flex items-center space-x-2">
+  //             <Skeleton className="h-6 w-6" />
+  //             <Skeleton className="h-8 w-32" />
+  //           </div>
+  //           <div className="space-y-6">
+  //             {[1, 2].map((i) => (
+  //               <Card key={i}>
+  //                 <CardHeader>
+  //                   <Skeleton className="h-6 w-48" />
+  //                   <Skeleton className="h-5 w-36" />
+  //                 </CardHeader>
+  //                 <CardContent>
+  //                   <Skeleton className="h-4 w-full" />
+  //                   <Skeleton className="h-4 w-5/6 mt-2" />
+  //                 </CardContent>
+  //               </Card>
+  //             ))}
+  //           </div>
+  //         </div>
 
-          {/* Education Section */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <Skeleton className="h-6 w-6" />
-              <Skeleton className="h-8 w-32" />
-            </div>
-            <div className="space-y-6">
-              {[1, 2].map((i) => (
-                <Card key={i}>
-                  <CardHeader>
-                    <Skeleton className="h-6 w-48" />
-                    <Skeleton className="h-5 w-36" />
-                  </CardHeader>
-                  <CardContent>
-                    <Skeleton className="h-4 w-full" />
-                    <Skeleton className="h-4 w-5/6 mt-2" />
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Philosophy Section */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <Skeleton className="h-6 w-6" />
-              <Skeleton className="h-8 w-40" />
-            </div>
-            <div className="space-y-4">
-              {[1, 2, 3, 4].map((i) => (
-                <Skeleton key={i} className="h-4 w-full" />
-              ))}
-              <Skeleton className="h-4 w-2/3" />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  //         {/* Philosophy Section */}
+  //         <div className="space-y-4">
+  //           <div className="flex items-center space-x-2">
+  //             <Skeleton className="h-6 w-6" />
+  //             <Skeleton className="h-8 w-40" />
+  //           </div>
+  //           <div className="space-y-4">
+  //             {[1, 2, 3, 4].map((i) => (
+  //               <Skeleton key={i} className="h-4 w-full" />
+  //             ))}
+  //             <Skeleton className="h-4 w-2/3" />
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="container py-12 px-4 mx-auto">

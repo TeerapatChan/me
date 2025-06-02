@@ -11,17 +11,15 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 max-w-screen-2xl items-center">
+    <header className="px-4 sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="flex h-16 items-center w-full">
         <div className="mr-4 flex">
           <Link to="/" className="mr-6 flex items-center space-x-2">
             <span className="font-bold text-xl hidden sm:inline-block">
-              DevName
+              TeerapatChan
             </span>
-            <span className="font-bold text-xl sm:hidden">DN</span>
           </Link>
         </div>
-
         {/* Desktop navigation */}
         <nav className="hidden md:flex flex-1 items-center justify-between">
           <div className="flex items-center space-x-6 text-sm font-medium">

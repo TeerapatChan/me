@@ -1,6 +1,4 @@
 import { Download, Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { Skeleton } from '@/components/ui/skeleton';
 import {
   Badge,
   Button,
@@ -94,83 +92,9 @@ const skills: Record<string, Array<string>> = {
 };
 
 export default function ResumePage() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading data
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
   const handleDownload = () => {
-    // In a real app, this would trigger a PDF download
     alert('Downloading resume...');
   };
-
-  if (isLoading) {
-    return (
-      <div className="container py-12 px-4 md:px-6 mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <div className="space-y-2">
-            <Skeleton className="h-10 w-64" />
-            <Skeleton className="h-6 w-48" />
-          </div>
-          <Skeleton className="h-10 w-32" />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="space-y-6">
-            <Skeleton className="h-6 w-32" />
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-5/6" />
-            <Skeleton className="h-4 w-4/5" />
-
-            <div className="pt-4">
-              <Skeleton className="h-6 w-32 mb-4" />
-              <div className="space-y-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <Skeleton key={i} className="h-4 w-full" />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="md:col-span-2 space-y-8">
-            <div>
-              <Skeleton className="h-8 w-48 mb-6" />
-              <div className="space-y-6">
-                {[1, 2].map((i) => (
-                  <Card key={i}>
-                    <CardHeader>
-                      <div className="flex justify-between items-start">
-                        <div className="space-y-1">
-                          <Skeleton className="h-6 w-48" />
-                          <Skeleton className="h-5 w-36" />
-                          <Skeleton className="h-4 w-24 mt-2" />
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-2">
-                      {[1, 2, 3].map((j) => (
-                        <Skeleton key={j} className="h-4 w-full" />
-                      ))}
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {[1, 2, 3].map((k) => (
-                          <Skeleton key={k} className="h-6 w-20" />
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="container py-12 px-4 mx-auto">
