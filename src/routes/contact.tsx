@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-import { Github, Linkedin, Mail, MapPin, Phone, Send } from 'lucide-react'
-import { Skeleton } from '@/components/ui/skeleton'
+import { useEffect, useState } from 'react';
+import { Github, Linkedin, Mail, MapPin, Phone, Send } from 'lucide-react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 import {
   Button,
@@ -13,49 +13,49 @@ import {
   Input,
   Label,
   Textarea,
-} from '@/components/ui'
+} from '@/components/ui';
 
 function ContactPage() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Simulate loading data
     const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 1000)
+      setIsLoading(false);
+    }, 1000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
     consent: false,
-  })
+  });
   const [formStatus, setFormStatus] = useState<
     'idle' | 'submitting' | 'success' | 'error'
-  >('idle')
+  >('idle');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handleCheckboxChange = (checked: boolean) => {
     setFormData((prev) => ({
       ...prev,
       consent: checked,
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     // Form validation
     if (
@@ -64,11 +64,11 @@ function ContactPage() {
       !formData.message ||
       !formData.consent
     ) {
-      alert('Please fill in all required fields and accept the privacy policy')
-      return
+      alert('Please fill in all required fields and accept the privacy policy');
+      return;
     }
 
-    setFormStatus('submitting')
+    setFormStatus('submitting');
 
     try {
       // This would be replaced with actual API call in production
@@ -79,27 +79,27 @@ function ContactPage() {
       // })
 
       // Simulate API call delay
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      setFormStatus('success')
+      setFormStatus('success');
       setFormData({
         name: '',
         email: '',
         subject: '',
         message: '',
         consent: false,
-      })
+      });
 
       // Reset form status after 3 seconds
-      setTimeout(() => setFormStatus('idle'), 3000)
+      setTimeout(() => setFormStatus('idle'), 3000);
     } catch (error) {
-      console.error('Error sending message:', error)
-      setFormStatus('error')
+      console.error('Error sending message:', error);
+      setFormStatus('error');
 
       // Reset form status after 3 seconds
-      setTimeout(() => setFormStatus('idle'), 3000)
+      setTimeout(() => setFormStatus('idle'), 3000);
     }
-  }
+  };
 
   if (isLoading) {
     return (
@@ -108,7 +108,7 @@ function ContactPage() {
           <Skeleton className="h-12 w-64 mx-auto" />
           <Skeleton className="h-6 w-1/2 mx-auto" />
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-6">
             <Skeleton className="h-96 w-full" />
@@ -118,7 +118,7 @@ function ContactPage() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -404,7 +404,7 @@ function ContactPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default ContactPage
+export default ContactPage;

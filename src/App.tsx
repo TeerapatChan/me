@@ -1,5 +1,5 @@
-import { Outlet } from '@tanstack/react-router'
-import Navbar from './components/layout/Navbar'
+import { Outlet } from '@tanstack/react-router';
+import { Navbar } from './components/layout';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <Outlet />
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

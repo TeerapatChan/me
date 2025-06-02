@@ -1,6 +1,6 @@
-import { Download, Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
-import { useEffect, useState } from 'react'
-import { Skeleton } from '@/components/ui/skeleton'
+import { Download, Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 import {
   Badge,
   Button,
@@ -8,24 +8,24 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from '@/components/ui'
+} from '@/components/ui';
 
 type Experience = {
-  id: number
-  role: string
-  company: string
-  duration: string
-  description: Array<string>
-  skills: Array<string>
-}
+  id: number;
+  role: string;
+  company: string;
+  duration: string;
+  description: Array<string>;
+  skills: Array<string>;
+};
 
 type Education = {
-  id: number
-  degree: string
-  institution: string
-  duration: string
-  description: string
-}
+  id: number;
+  degree: string;
+  institution: string;
+  duration: string;
+  description: string;
+};
 
 const experiences: Array<Experience> = [
   {
@@ -67,7 +67,7 @@ const experiences: Array<Experience> = [
     ],
     skills: ['JavaScript', 'React', 'Redux', 'HTML/CSS', 'Jest'],
   },
-]
+];
 
 const education: Array<Education> = [
   {
@@ -84,30 +84,30 @@ const education: Array<Education> = [
     duration: '2010 - 2014',
     description: 'Minor in Mathematics',
   },
-]
+];
 
 const skills: Record<string, Array<string>> = {
   languages: ['JavaScript', 'TypeScript', 'Python', 'HTML5', 'CSS3', 'SQL'],
   frameworks: ['React', 'Node.js', 'Express', 'Next.js', 'Django'],
   databases: ['MongoDB', 'PostgreSQL', 'Redis'],
   tools: ['Git', 'Docker', 'Kubernetes', 'AWS', 'Jest', 'Cypress'],
-}
+};
 
 export default function ResumePage() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Simulate loading data
     const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 1000)
+      setIsLoading(false);
+    }, 1000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
   const handleDownload = () => {
     // In a real app, this would trigger a PDF download
-    alert('Downloading resume...')
-  }
+    alert('Downloading resume...');
+  };
 
   if (isLoading) {
     return (
@@ -126,7 +126,7 @@ export default function ResumePage() {
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-5/6" />
             <Skeleton className="h-4 w-4/5" />
-            
+
             <div className="pt-4">
               <Skeleton className="h-6 w-32 mb-4" />
               <div className="space-y-2">
@@ -136,7 +136,7 @@ export default function ResumePage() {
               </div>
             </div>
           </div>
-          
+
           <div className="md:col-span-2 space-y-8">
             <div>
               <Skeleton className="h-8 w-48 mb-6" />
@@ -169,7 +169,7 @@ export default function ResumePage() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -379,5 +379,5 @@ export default function ResumePage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

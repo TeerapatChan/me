@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react'
-import Hero from '@/components/sections/Hero'
-import { Skeleton } from '@/components/ui/skeleton'
+import { useEffect, useState } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Hero } from '@/components/sections';
 
 export default function HomePage() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Simulate loading data
     const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 1000)
+      setIsLoading(false);
+    }, 1000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   if (isLoading) {
     return (
@@ -21,7 +21,7 @@ export default function HomePage() {
           <Skeleton className="h-full w-full" />
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -29,5 +29,5 @@ export default function HomePage() {
       <Hero />
       {/* Add more sections here as needed */}
     </div>
-  )
+  );
 }

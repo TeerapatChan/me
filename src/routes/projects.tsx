@@ -1,7 +1,7 @@
-import { Link } from '@tanstack/react-router'
-import { ExternalLink, Github } from 'lucide-react'
-import { useEffect, useState } from 'react'
-import { Skeleton } from '@/components/ui/skeleton'
+import { Link } from '@tanstack/react-router';
+import { ExternalLink, Github } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 import {
   Badge,
   Button,
@@ -11,7 +11,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui'
+} from '@/components/ui';
 
 // Sample project data - in a real application, this would likely come from an API or CMS
 const projects = [
@@ -81,22 +81,22 @@ const projects = [
     githubUrl: 'https://github.com/yourusername/budget-tracker',
     featured: false,
   },
-]
+];
 
 export default function ProjectsPage() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Simulate loading data
     const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 1000)
+      setIsLoading(false);
+    }, 1000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
   // Split projects into featured and regular
-  const featuredProjects = projects.filter((project) => project.featured)
-  const regularProjects = projects.filter((project) => !project.featured)
+  const featuredProjects = projects.filter((project) => project.featured);
+  const regularProjects = projects.filter((project) => !project.featured);
 
   if (isLoading) {
     return (
@@ -135,7 +135,7 @@ export default function ProjectsPage() {
           ))}
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -287,5 +287,5 @@ export default function ProjectsPage() {
         </Button>
       </div>
     </div>
-  )
+  );
 }

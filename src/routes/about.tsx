@@ -1,25 +1,25 @@
-import { Briefcase, Code, GraduationCap, Lightbulb } from 'lucide-react'
-import { useEffect, useState } from 'react'
-import { Skeleton } from '@/components/ui/skeleton'
+import { Briefcase, Code, GraduationCap, Lightbulb } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 import {
   Badge,
   Card,
   CardContent,
   CardHeader,
   CardTitle,
-} from '@/components/ui'
+} from '@/components/ui';
 
 export default function AboutPage() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Simulate loading data
     const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 1000)
+      setIsLoading(false);
+    }, 1000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
   const skills: Array<string> = [
     'JavaScript',
     'TypeScript',
@@ -34,13 +34,13 @@ export default function AboutPage() {
     'Git',
     'CI/CD',
     'RESTful APIs',
-  ]
+  ];
 
   const experiences: Array<{
-    role: string
-    company: string
-    period: string
-    description: string
+    role: string;
+    company: string;
+    period: string;
+    description: string;
   }> = [
     {
       role: 'Senior Full Stack Developer',
@@ -56,7 +56,7 @@ export default function AboutPage() {
       description:
         'Developed responsive user interfaces and collaborated with UX designers to implement modern web designs.',
     },
-  ]
+  ];
 
   const education = [
     {
@@ -69,7 +69,7 @@ export default function AboutPage() {
       institution: 'State University',
       year: '2016',
     },
-  ]
+  ];
 
   if (isLoading) {
     return (
@@ -94,7 +94,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-
           {/* Experience Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -116,7 +115,6 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
-
 
           {/* Education Section */}
           <div className="space-y-4">
@@ -140,7 +138,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-
           {/* Philosophy Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -156,7 +153,7 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -257,5 +254,5 @@ export default function AboutPage() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
