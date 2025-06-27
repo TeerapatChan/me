@@ -19,14 +19,6 @@ type Experience = {
   skills: Array<string>;
 };
 
-type Education = {
-  id: number;
-  degree: string;
-  institution: string;
-  duration: string;
-  description: string;
-};
-
 const experiences: Array<Experience> = [
   {
     id: 1,
@@ -66,23 +58,6 @@ const experiences: Array<Experience> = [
       'Wrote unit and integration tests',
     ],
     skills: ['JavaScript', 'React', 'Redux', 'HTML/CSS', 'Jest'],
-  },
-];
-
-const education: Array<Education> = [
-  {
-    id: 1,
-    degree: 'Master of Computer Science',
-    institution: 'Tech University',
-    duration: '2014 - 2016',
-    description: 'Specialized in Web Technologies and Distributed Systems',
-  },
-  {
-    id: 2,
-    degree: 'Bachelor of Science in Computer Science',
-    institution: 'State University',
-    duration: '2010 - 2014',
-    description: 'Minor in Mathematics',
   },
 ];
 
