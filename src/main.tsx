@@ -1,7 +1,6 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
-  Outlet,
   RouterProvider,
   createRootRoute,
   createRoute,
@@ -21,9 +20,9 @@ import {
   AboutPage,
   ContactPage,
   HomePage,
-  ProjectsPage,
+  // ProjectsPage,
   ResumePage,
-} from './routes';
+} from './pages/index.ts';
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -53,11 +52,11 @@ const resumeRoute = createRoute({
   component: ResumePage,
 });
 
-const projectsRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/projects',
-  component: ProjectsPage,
-});
+// const projectsRoute = createRoute({
+//   getParentRoute: () => rootRoute,
+//   path: '/projects',
+//   component: ProjectsPage,
+// });
 
 const contactRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -65,12 +64,11 @@ const contactRoute = createRoute({
   component: ContactPage,
 });
 
-// Create the route tree
 const routeTree = rootRoute.addChildren([
   indexRoute,
   aboutRoute,
   resumeRoute,
-  projectsRoute,
+  // projectsRoute,
   contactRoute,
 ]);
 

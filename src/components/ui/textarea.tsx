@@ -1,5 +1,13 @@
 import * as React from 'react';
 
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from './form';
 import { cn } from '@/lib/utils';
 
 function Textarea({ className, ...props }: React.ComponentProps<'textarea'>) {
@@ -15,4 +23,54 @@ function Textarea({ className, ...props }: React.ComponentProps<'textarea'>) {
   );
 }
 
-export { Textarea };
+interface FormTextareaProps {
+  control: any;
+  name: string;
+  label?: string;
+  placeholder?: string;
+  description?: string;
+  rows?: number;
+  disabled?: boolean;
+  required?: boolean;
+  className?: string;
+}
+
+function FormTextarea({
+  control,
+  name,
+  label,
+  placeholder,
+  description,
+  rows = 4,
+  disabled,
+  required,
+  className,
+}: FormTextareaProps) {
+  return (
+    <FormField
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <div className="flex flex-col h-full gap-2">
+          {label && <FormLabel>{label}</FormLabel>}
+          <FormItem className="h-full">
+            <FormControl>
+              <Textarea
+                {...field}
+                placeholder={placeholder}
+                rows={rows}
+                disabled={disabled}
+                required={required}
+                className={className}
+              />
+            </FormControl>
+            {description && <FormDescription>{description}</FormDescription>}
+            <FormMessage />
+          </FormItem>
+        </div>
+      )}
+    />
+  );
+}
+
+export { Textarea, FormTextarea };

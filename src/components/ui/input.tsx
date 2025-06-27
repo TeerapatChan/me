@@ -1,5 +1,13 @@
 import * as React from 'react';
 
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from './form';
 import { cn } from '@/lib/utils';
 
 function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
@@ -18,4 +26,49 @@ function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
   );
 }
 
-export { Input };
+interface FormInputProps {
+  control: any;
+  name: string;
+  label?: string;
+  placeholder?: string;
+  description?: string;
+  type?: string;
+  disabled?: boolean;
+  required?: boolean;
+}
+
+function FormInput({
+  control,
+  name,
+  label,
+  placeholder,
+  description,
+  type = 'text',
+  disabled,
+  required,
+}: FormInputProps) {
+  return (
+    <FormField
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <FormItem>
+          {label && <FormLabel>{label}</FormLabel>}
+          <FormControl>
+            <Input
+              {...field}
+              placeholder={placeholder}
+              type={type}
+              disabled={disabled}
+              required={required}
+            />
+          </FormControl>
+          {description && <FormDescription>{description}</FormDescription>}
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  );
+}
+
+export { Input, FormInput };

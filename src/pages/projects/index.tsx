@@ -86,7 +86,7 @@ export default function ProjectsPage() {
   const regularProjects = projects.filter((project) => !project.featured);
 
   return (
-    <div className="container py-12 px-4 md:px-6 mx-auto">
+    <div className="py-12 px-4 md:px-6 mx-auto">
       <div className="space-y-2 text-center mb-16">
         <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
           My Projects

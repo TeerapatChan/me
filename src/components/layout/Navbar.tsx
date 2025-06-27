@@ -37,13 +37,13 @@ export default function Navbar() {
             >
               About
             </Link>
-            <Link
+            {/* <Link
               to="/projects"
               className="transition-colors hover:text-foreground/80"
               activeProps={{ className: 'text-foreground font-semibold' }}
             >
               Projects
-            </Link>
+            </Link> */}
             <Link
               to="/contact"
               className="transition-colors hover:text-foreground/80"
@@ -54,14 +54,12 @@ export default function Navbar() {
           </div>
           <div className="flex items-center space-x-4">
             <Button variant="outline" size="sm">
-              <Link to="/resume" className="px-2">
+              <a href="teerapat-resume.pdf" download="teerapat-resume.pdf">
                 Resume
-              </Link>
+              </a>
             </Button>
-            <Button>
-              <Link to="/contact" className="px-2">
-                Hire Me
-              </Link>
+            <Button size="sm">
+              <Link to="/contact">Hire Me</Link>
             </Button>
           </div>
         </nav>
@@ -85,7 +83,7 @@ export default function Navbar() {
 
       {/* Mobile navigation */}
       {isMenuOpen && (
-        <div className="container md:hidden">
+        <div className="md:hidden">
           <nav className="flex flex-col space-y-4 py-4">
             <Link
               to="/"
@@ -101,13 +99,13 @@ export default function Navbar() {
             >
               About
             </Link>
-            <Link
+            {/* <Link
               to="/projects"
               className="text-foreground/70 transition-colors hover:text-foreground"
               onClick={() => setIsMenuOpen(false)}
             >
               Projects
-            </Link>
+            </Link> */}
 
             <Link
               to="/contact"
@@ -118,9 +116,13 @@ export default function Navbar() {
             </Link>
             <div className="flex flex-col space-y-2 pt-2">
               <Button variant="outline" onClick={() => setIsMenuOpen(false)}>
-                <Link to="/resume" className="w-full">
+                <a
+                  href="teerapat-resume.pdf"
+                  download="teerapat-resume.pdf"
+                  className="w-full"
+                >
                   Resume
-                </Link>
+                </a>
               </Button>
               <Button onClick={() => setIsMenuOpen(false)}>
                 <Link to="/contact" className="w-full">
